@@ -30,7 +30,16 @@
 */
 
 //Code Here
-
+class Employee{
+    this.first_name = 
+    this.last_name =
+    this.email = 
+    this.age =
+}
+  makeWidget(){
+    return `${this.first_name} ${this.last_name} Widget`
+  }
+  Employee();
 
 ////////// PROBLEM 2 //////////
 
