@@ -63,7 +63,7 @@ class Employee {
 //Code Here
 class Manager extends Employee{
   constructor(first_name, last_name, email, age,){
-    super(firstName, lastName, email, age)
+    super(first_name, last_name, email, age)
   this.reports = [];
  }
 
@@ -71,11 +71,9 @@ hire (employee){
   return this.reports.push(employee)
       
 }
- fire (){
-  delete Employee[this.reports[i]];
-return this.reports
+ fire(index){
+  this.reports.splice(index, 1)
 }
-  
 }
 ///////FIRE ISN'T CORRECT, THE REST LOOKS RIGHT
 
@@ -104,14 +102,33 @@ return this.reports
 
 
 class ProgressiveManager extends Manager{
-//   constructor(firstName, lastName, email, age, reports, title, bonus)
-//   super(firstName, lastName, email, age, reports)
-//     this.title = 'Not a manager'
-//     this.bonus = 0
-// }
-// if (this.bonus === 0){
-//   return this.title;
-// } 
+constructor(first_name, last_name, email, age){
+  super(first_name, last_name, email, age)
+    this.title = 'Not a manager',
+    this.bonus = 0
+}
+
+hire(){
+  super.hire()
+  this.checkTitle()
+}
+  checkTitle(){
+    if(this.reports.length === 0) {
+      this.title ='Not a Manager'
+    } else if (this.reports.length > 0 && this.reports.length < 4){
+      this.title = 'Barely Manager'
+    } else if (this.reports.length > 3 && this.reports.length < 11){
+      this.title = 'Mostly Manager'
+    }else if (this.reports.length > 10 && this.reports.length < 51){
+      this.title = 'Manager'
+  }else if (this.reports.length > 50 && this.reports.length < 101){
+    this.title = 'Manager Plus'
+}else if (this.reports.length >  100){
+  this.title = 'Bestest Manager'
+}
+  }
+}
+
 
 ////////// PROBLEM 4 - Black Diamond //////////
 
