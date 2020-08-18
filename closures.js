@@ -23,13 +23,13 @@ function outer() {
 */
   
 // Code Here
+let inner = outer()
 
-
-
+////corect
 //Once you do that, invoke inner.
 
 //Code Here
-
+inner;
 
 
 ////////// PROBLEM 2 //////////
@@ -52,6 +52,11 @@ function callFriend(name) {
 */
 
 //Code Here
+// let name = 'Jake'
+// let number = '435-555-9248'
+let callJake = callFriend('Jake');
+callJake(435-555-9248)/// yay it's correct.... GRACE look at the function. DON'T TRY TO SKIP AHEAD. COMPUTERS ARE 'DUMB' AND RELY ON YOU. don't be dumb. 
+
 
 
 
@@ -63,14 +68,19 @@ function callFriend(name) {
 
 //Code Here
 
+function makeCounter(){
+  let number = 0
+  return function(){
+    return number+=1;
+  }
+}/////ARGH JASMINE = SHOULD MAKE COUNT(); INCRAMENT
 
-
-//Uncomment this once you make your function
-//   var count = makeCounter();
-//   count(); // 1
-//   count(); // 2
-//   count(); // 3
-//   count(); // 4
+// Uncomment this once you make your function
+  var count = makeCounter();
+  count(); // 1
+  count(); // 2
+  count(); // 3
+  count(); // 4
 
 
 
@@ -85,13 +95,21 @@ function callFriend(name) {
   http://stackoverflow.com/questions/17776940/javascript-module-pattern-with-example?answertab=votes#tab-top
 */
 
-function counterFactory(value) {
-  // Code here.
+function counterFactory(value){
 
-  return {
+  function inc(){
+    return value+=1
+  }
+  function dec(){
+  return --value
+  }
 
-  };
-}
+  return{
+    inc,
+    dec
+  }
+  }
+
 
 counter = counterFactory(10);
 // counter.inc() // 11
@@ -108,15 +126,18 @@ counter = counterFactory(10);
   The final message should say "You're doing awesome, keep it up firstname lastname." 
   (Hint: don't forget to have a space between the firstname and lastname and a period at the end of the sentence.)
 */
-
+////correct
 function motivation( firstname, lastname ) {
   var welcomeText = "You're doing awesome, keep it up";
 
-  // code message function here.
-
-  //Uncommment this to return the value of your message function
-  //return message;
+  // code message function here
+function message(){
+  return `${welcomeText} ${firstname} ${lastname}.`
 }
+  //Uncommment this to return the value of your message function
+  return message;
+}
+
 
 var greeting = motivation('Billy', 'Bob'); // 'You're doing awesome keep it up Billy Bob.
 
@@ -144,8 +165,10 @@ var module = (function() {
   // outside our lexical scope
   return {
     // Code here.
+    
   };
 })();
+
 
 
 
@@ -162,7 +185,9 @@ function secretNumber() {
   var secret = 143;
 
   return {
-    // Code here
+    ///code here
+  
+    
   };
 }
 
@@ -188,9 +213,13 @@ function secretNumber() {
 
 function timeOutCounter() {
   for (var i = 0; i <= 5; i++) {
-    setTimeout(function() {
-      console.log(i);
+    const memoryCloser = () => {
+        let count = i
+            setTimeout(function() {
+      console.log(count);
     }, i * 1000);
   }
+  memoryCloser()
+}
 }
 timeOutCounter();

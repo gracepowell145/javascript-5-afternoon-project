@@ -30,16 +30,20 @@
 */
 
 //Code Here
-class Employee{
-    this.first_name = 
-    this.last_name =
-    this.email = 
-    this.age =
+class Employee {
+  constructor(first_name, last_name, email, age){
+    this.first_name = first_name
+    this.last_name = last_name
+    this.email = email
+    this.age = age
 }
   makeWidget(){
-    return `${this.first_name} ${this.last_name} Widget`
-  }
-  Employee();
+    return `${this.first_name} ${this.last_name} Widget`;
+    }
+}
+  
+
+  ///correct
 
 ////////// PROBLEM 2 //////////
 
@@ -57,7 +61,23 @@ class Employee{
 */
 
 //Code Here
+class Manager extends Employee{
+  constructor(first_name, last_name, email, age,){
+    super(firstName, lastName, email, age)
+  this.reports = [];
+ }
 
+hire (employee){
+  return this.reports.push(employee)
+      
+}
+ fire (){
+  delete Employee[this.reports[i]];
+return this.reports
+}
+  
+}
+///////FIRE ISN'T CORRECT, THE REST LOOKS RIGHT
 
 ////////// PROBLEM 3 //////////
 
@@ -83,6 +103,15 @@ class Employee{
 //Code Here
 
 
+class ProgressiveManager extends Manager{
+//   constructor(firstName, lastName, email, age, reports, title, bonus)
+//   super(firstName, lastName, email, age, reports)
+//     this.title = 'Not a manager'
+//     this.bonus = 0
+// }
+// if (this.bonus === 0){
+//   return this.title;
+// } 
 
 ////////// PROBLEM 4 - Black Diamond //////////
 
@@ -106,7 +135,5 @@ class Employee{
         - This function returns an anonymous function that is called when the machine is done rebooting
         - The anonymous function should decrease wear_and_tear_count by 10, and set needs_reboot to false
 */
-
+//NEEDS ARROW FUNCTION TO HANDLE CONTEXT
 //Code Here
-
-
