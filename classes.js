@@ -112,6 +112,10 @@ hire(){
   super.hire()
   this.checkTitle()
 }
+fire(){
+  super.fire()
+  return this.checkTitle()
+}
   checkTitle(){
     if(this.reports.length === 0) {
       this.title ='Not a Manager'
