@@ -163,11 +163,16 @@ var module = (function() {
 
   // Anything that is being returned is made public and can be invoked from
   // outside our lexical scope
-  return {
-    // Code here.
-    
-  };
+     // Code here.
+  return { 
+    publicMethod(){
+    return privateMethod()
+  }
+};
 })();
+ 
+    
+ module.publicMethod();
 
 
 
@@ -186,8 +191,12 @@ function secretNumber() {
 
   return {
     ///code here
-  
-    
+  addToSecret: function(num){
+    return secret += num
+  },
+  takeAwayFromSecret(num){
+    return secret -= num
+  }
   };
 }
 
@@ -214,8 +223,8 @@ function secretNumber() {
 function timeOutCounter() {
   for (var i = 0; i <= 5; i++) {
     const memoryCloser = () => {
-        let count = i
-            setTimeout(function() {
+    let count = i
+    setTimeout(function() {
       console.log(count);
     }, i * 1000);
   }
