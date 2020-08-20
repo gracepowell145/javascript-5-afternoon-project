@@ -72,7 +72,7 @@ hire (employee){
       
 }
  fire(index){
-  this.reports.splice(index, 1)
+  this.reports.splice(index,1)
 }
 }
 ///////FIRE ISN'T CORRECT, THE REST LOOKS RIGHT
@@ -126,6 +126,7 @@ hire(){
 }else if (this.reports.length >  100){
   this.title = 'Bestest Manager'
 }
+
   }
 }
 
